@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>比較演算子・論理演算子リファレンス</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <header class="mb-10 text-center">
+                <h1
+                    class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
+                >
+                    比較演算子・論理演算子リファレンス
+                </h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    if文などの条件分岐で頻繁に使用される「比較演算子（大きい、小さい、等しい）」と「論理演算子（かつ、または、〜でない）」の意味と使い方をまとめました。<br
+                        class="hidden md:block"
+                    />
+                    プログラミング初学者が混同しやすい記号の違いも解説しています。
+                </p>
+            </header>
+
+            <!-- 表形式コンテナ：比較演算子 -->
+            <h2
+                class="text-2xl font-bold text-gray-800 mb-2 border-l-4 border-purple-500 pl-3 mt-8"
+            >
+                比較演算子
+            </h2>
+            <p class="text-sm text-gray-600 mb-4 ml-1">
+                左右の値を比べて、条件を満たしていれば「真（<code
+                    class="bg-gray-100 text-purple-700 px-1 rounded font-mono"
+                    >true</code
+                >）」、満たしていなければ「偽（<code
+                    class="bg-gray-100 text-purple-700 px-1 rounded font-mono"
+                    >false</code
+                >）」を返します。
+            </p>
+            <div
+                class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-10"
+            >
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-purple-50">
+                            <tr>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-purple-900 uppercase tracking-wider whitespace-nowrap"
+                                >
+                                    演算子
+                                </th>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-purple-900 uppercase tracking-wider whitespace-nowrap"
+                                >
+                                    読み方・意味
+                                </th>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-purple-900 uppercase tracking-wider min-w-[300px]"
+                                >
+                                    使われ方・注意点
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody
+                            id="comparison-table-body"
+                            class="bg-white divide-y divide-gray-100"
+                        >
+                            <!-- JavaScriptで動的に生成されます -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 表形式コンテナ：論理演算子 -->
+            <h2
+                class="text-2xl font-bold text-gray-800 mb-2 border-l-4 border-amber-500 pl-3"
+            >
+                論理演算子
+            </h2>
+            <p class="text-sm text-gray-600 mb-4 ml-1">
+                複数の条件を組み合わせたり、条件を反転させたりする時に使用します。「AかつB」「AまたはB」などの複雑な条件を作ることができます。
+            </p>
+            <div
+                class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+            >
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-amber-50">
+                            <tr>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-amber-900 uppercase tracking-wider whitespace-nowrap"
+                                >
+                                    演算子
+                                </th>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-amber-900 uppercase tracking-wider whitespace-nowrap"
+                                >
+                                    読み方・意味
+                                </th>
+                                <th
+                                    scope="col"
+                                    class="px-6 py-4 text-left text-sm font-bold text-amber-900 uppercase tracking-wider min-w-[300px]"
+                                >
+                                    使われ方・注意点
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody
+                            id="logical-table-body"
+                            class="bg-white divide-y divide-gray-100"
+                        >
+                            <!-- JavaScriptで動的に生成されます -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <footer
+                class="mt-12 text-center text-sm text-gray-500 border-t pt-8 pb-4"
+            >
+                <p>
+                    ※PHPなどの一部の言語では、記号（&&）と英語（and）の両方が使えますが、処理の優先順位が異なる場合があるため注意が必要です。
+                </p>
+            </footer>
+        </div>
+
+        <script>
+            // 比較演算子のデータ
+            const comparisonData = [
+                {
+                    operator: ">",
+                    meaning: "大なり (Greater than)",
+                    usage: '左辺が右辺より「大きい」場合に真。<br>例: <code class="bg-gray-100 px-1 rounded">5 > 3</code> は真、<code class="bg-gray-100 px-1 rounded">3 > 3</code> は偽（同じ値は含まない）。',
+                },
+                {
+                    operator: "<",
+                    meaning: "小なり (Less than)",
+                    usage: '左辺が右辺より「小さい」場合に真。<br>例: <code class="bg-gray-100 px-1 rounded">2 < 5</code> は真。同じ値は含まれません。',
+                },
+                {
+                    operator: ">=",
+                    meaning: "以上 (Greater than or equal)",
+                    usage: '左辺が右辺「以上（大きい、または同じ）」場合に真。<code class="bg-gray-100 px-1 rounded">=></code> と順番を逆に書くとエラーになります。',
+                },
+                {
+                    operator: "<=",
+                    meaning: "以下 (Less than or equal)",
+                    usage: '左辺が右辺「以下（小さい、または同じ）」場合に真。<code class="bg-gray-100 px-1 rounded">=<</code> と順番を逆に書くとエラーになります。',
+                },
+                {
+                    operator: "==",
+                    meaning: "等価 (Equal)",
+                    usage: '左右の値が「等しい」場合に真。<br><span class="text-red-600 font-bold text-xs">【注意】</span> <code class="bg-gray-100 px-1 rounded">=</code> が1つだと「代入（右の値を左の箱に入れる）」になるため、比較には必ず2つ以上使います。',
+                },
+                {
+                    operator: "===",
+                    meaning: "厳密等価 (Strict equal)",
+                    usage: '左右の値が「等しく、かつデータ型（文字か数値かなど）も同じ」場合に真。<br>JavaScriptやPHPなどで <code class="bg-gray-100 px-1 rounded">1 == "1"</code> は真になりますが、<code class="bg-gray-100 px-1 rounded">1 === "1"</code> は型が違うので偽になります。バグを防ぐためこちらが推奨されます。',
+                },
+                {
+                    operator: "!=",
+                    meaning: "不等価 (Not equal)",
+                    usage: '左右の値が「等しくない」場合に真。<code class="bg-gray-100 px-1 rounded">!</code> はプログラミングで「否定」を表します。',
+                },
+                {
+                    operator: "!==",
+                    meaning: "厳密不等価 (Strict not equal)",
+                    usage: '左右の値、またはデータ型が「等しくない」場合に真。<code class="bg-gray-100 px-1 rounded">===</code> の反対です。',
+                },
+            ];
+
+            // 論理演算子のデータ
+            const logicalData = [
+                {
+                    operator:
+                        '&&<div class="text-sm font-normal text-amber-900/60 my-1 border-t border-amber-200/50 pt-1">または</div>and',
+                    meaning: "論理積 (AND / かつ)",
+                    usage: '左右の条件が【両方とも】真の場合に全体が真になります。<br>C, Java, JavaScriptなどでは記号の <code class="bg-gray-100 px-1 rounded">&&</code> を、Python, Ruby, SQLなどでは英単語の <code class="bg-gray-100 px-1 rounded">and</code> を使用します。',
+                },
+                {
+                    operator:
+                        '||<div class="text-sm font-normal text-amber-900/60 my-1 border-t border-amber-200/50 pt-1">または</div>or',
+                    meaning: "論理和 (OR / または)",
+                    usage: '左右の条件の【どちらか一方でも】真であれば全体が真になります。<br>JavaScript等では <code class="bg-gray-100 px-1 rounded">||</code>、Python等では <code class="bg-gray-100 px-1 rounded">or</code> を使用します。<code class="bg-gray-100 px-1 rounded">|</code> は「縦線（パイプ）」記号で、Shift + ¥キーなどで入力します。',
+                },
+                {
+                    operator:
+                        '!<div class="text-sm font-normal text-amber-900/60 my-1 border-t border-amber-200/50 pt-1">または</div>not',
+                    meaning: "論理否定 (NOT / 〜でない)",
+                    usage: '条件の真偽を「反転」させます。<br>JavaScript等では <code class="bg-gray-100 px-1 rounded">!</code>、Python等では <code class="bg-gray-100 px-1 rounded">not</code> を使用します。<br>例: <code class="bg-gray-100 px-1 rounded">!true</code> は偽になり、値が空かどうかのチェック等でも使われます。',
+                },
+            ];
+
+            // テーブル描画用の関数
+            function renderTable(data, tbodyId, colorTheme) {
+                const tbody = document.getElementById(tbodyId);
+                data.forEach((item, index) => {
+                    const tr = document.createElement("tr");
+                    // テーマカラーに基づくしましま模様とホバーエフェクト
+                    tr.className =
+                        index % 2 === 0
+                            ? `bg-white hover:bg-${colorTheme}-50/50 transition-colors`
+                            : `bg-gray-50/50 hover:bg-${colorTheme}-50/50 transition-colors`;
+
+                    tr.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-2xl font-mono font-bold text-${colorTheme}-700 bg-${colorTheme}-100/50 px-2 py-1 rounded inline-block min-w-[3rem] text-center">${item.operator}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-gray-900 font-medium">${item.meaning}</span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700 leading-relaxed">
+                        ${item.usage}
+                    </td>
+                `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            // 比較演算子を描画
+            renderTable(comparisonData, "comparison-table-body", "purple");
+            // 論理演算子を描画
+            renderTable(logicalData, "logical-table-body", "amber");
+        </script>
+    </body>
+</html>
