@@ -120,6 +120,78 @@
                 </div>
             </div>
 
+            <!-- 論理演算子の優先順位 -->
+            <h2
+                class="text-2xl font-bold text-gray-800 mb-2 border-l-4 border-indigo-500 pl-3 mt-12"
+            >
+                論理演算子の評価順序（優先順位）
+            </h2>
+            <p class="text-sm text-gray-600 mb-4 ml-1">
+                1つの式の中に複数の論理演算子がある場合、以下の順番で計算（評価）されます。
+            </p>
+            <div
+                class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-10"
+            >
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">
+                            計算される順番
+                        </h3>
+                        <ol class="space-y-3">
+                            <li class="flex items-center">
+                                <span
+                                    class="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3"
+                                    >1</span
+                                >
+                                <span class="font-bold text-indigo-700 w-16"
+                                    >!</span
+                                >
+                                <span class="text-gray-600">論理否定 (NOT)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span
+                                    class="w-6 h-6 bg-indigo-400 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3"
+                                    >2</span
+                                >
+                                <span class="font-bold text-indigo-700 w-16"
+                                    >&&</span
+                                >
+                                <span class="text-gray-600">論理積 (AND)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span
+                                    class="w-6 h-6 bg-indigo-200 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3"
+                                    >3</span
+                                >
+                                <span class="font-bold text-indigo-700 w-16"
+                                    >||</span
+                                >
+                                <span class="text-gray-600">論理和 (OR)</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="flex-[1.5] bg-indigo-50 rounded-lg p-5">
+                        <h3 class="text-indigo-900 font-bold mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                            ポイント
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-3">
+                            <li>
+                                <strong class="text-indigo-800">例：条件A || 条件B && 条件C</strong><br>
+                                <code class="bg-white/60 px-1 rounded">&&</code> が優先されるため、まず「BかつC」が判定され、その後に「Aまたは（BかつCの結果）」が判定されます。
+                            </li>
+                            <li>
+                                <strong class="text-indigo-800">カッコ ( ) で囲むと最優先</strong><br>
+                                算数と同じく、カッコ内の計算が一番先に行われます。<br>
+                                <code class="bg-white/60 px-1 rounded">(条件A || 条件B) && 条件C</code> と書けば、「AまたはB」を先に判定できます。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <footer
                 class="mt-12 text-center text-sm text-gray-500 border-t pt-8 pb-4"
             >
