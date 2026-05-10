@@ -62,7 +62,7 @@ Windows で使用します。
 
 ## 注意点
 
-- **コマンドの依存関係**:
+- コマンドの依存関係:
     - `checkdns.sh` は `dig` コマンドが必要です。
     - `checkdns.ps1` は `Resolve-DnsName` コマンドを使用します。
 - DKIMの確認:
