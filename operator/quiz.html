@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>条件分岐クイズ - Python版 (Reveal.js)</title>
+
+        <!-- Reveal.js コアCSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/night.css"
+            id="theme"
+        />
+
+        <!-- シンタックスハイライト用CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/monokai.css"
+            id="highlight-theme"
+        />
+
+        <style>
+            /* カスタムスタイル */
+            .reveal pre {
+                width: 80%;
+                margin: 20px auto;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                border-radius: 8px;
+            }
+            .reveal pre code {
+                font-size: 1.4em;
+                line-height: 1.5;
+                padding: 30px;
+                text-align: center;
+            }
+            .true-ans {
+                color: #4caf50;
+                font-weight: bold;
+                font-family: monospace;
+            }
+            .false-ans {
+                color: #f44336;
+                font-weight: bold;
+                font-family: monospace;
+            }
+            .explanation {
+                font-size: 0.7em !important;
+                color: #ccc;
+                text-align: left;
+                width: 80%;
+                margin: 30px auto 0 auto;
+                line-height: 1.6;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #ffd43b; /* Pythonカラー寄りの黄色 */
+            }
+            .instruction {
+                font-size: 0.5em !important;
+                color: #888;
+                margin-top: 40px !important;
+                animation: bounce 2s infinite;
+            }
+            @keyframes bounce {
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(-10px);
+                }
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+            .badge {
+                display: inline-block;
+                font-size: 0.4em;
+                background: #306998; /* Pythonブルー */
+                padding: 5px 10px;
+                border-radius: 20px;
+                vertical-align: middle;
+                margin-bottom: 10px;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- タイトルスライド -->
+                <section>
+                    <h2>
+                        条件分岐クイズ<br /><span
+                            style="font-size: 0.6em; color: #ffd43b"
+                            >(Python版)</span
+                        >
+                    </h2>
+                    <p>
+                        評価結果は <span class="true-ans">True</span> か
+                        <span class="false-ans">False</span> か？
+                    </p>
+                    <p style="font-size: 0.5em; color: #aaa">
+                        ※Pythonでの評価基準に基づきます
+                    </p>
+                    <div
+                        style="
+                            margin-top: 50px;
+                            font-size: 0.7em;
+                            color: #4dd0e1;
+                        "
+                    >
+                        <p>➡️ <b>右キー（Swipe Left）</b> で次の問題へ</p>
+                        <p>⬇️ <b>下キー（Swipe Up）</b> で答えと解説</p>
+                    </div>
+                </section>
+
+                <!-- Q1 -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 1</span> Q1. 比較演算子</h3>
+                        <pre><code data-trim class="python">
+                        10 > 5
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A1. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            「10 は 5 より大きい」という条件なので、結果は真
+                            (True) になります。<br />
+                            ※Pythonでは真偽値の頭文字は<b>大文字</b>になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q2 -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 1</span> Q2. 型の違う比較
+                        </h3>
+                        <pre><code data-trim class="python">
+                        10 == "10"
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A2. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            数値の <code>10</code> と、文字列の
+                            <code>"10"</code> はデータ型が異なります。<br />
+                            JavaScript等では自動変換されてTrueになることがありますが、Pythonは型に対して厳格なので
+                            <code>False</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q3 (旧Q5を移動・変数を使った形に変更) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q3. 論理積
+                            (and)の基本
+                        </h3>
+                        <pre><code data-trim class="python">
+                        a = (10 == 10)
+                        b = (5 > 10)
+                        a and b
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A3. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>a</code> は <code>True</code>、<code>b</code>
+                            は <code>False</code> になります。<br />
+                            <code>and</code>（かつ）は、左右の条件が<b
+                                >両方とも True</b
+                            >
+                            の時のみ <code>True</code> になります。変数
+                            <code>b</code> が
+                            <code>False</code> なので全体の結果は
+                            <code>False</code> です。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q4 (旧Q3) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q4. andを使った条件
+                        </h3>
+                        <pre><code data-trim class="python">
+                        x = 10
+                        x > 5 and x < 20
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A4. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>and</code> は左右の条件が両方とも True の時に
+                            True になります。<br />
+                            <code>x > 5</code> は True、<code>x < 20</code> も
+                            True なので、全体として
+                            <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q5 (旧Q4) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q5. 比較の連続
+                            (Python特有)
+                        </h3>
+                        <pre><code data-trim class="python">
+                        x = 10
+                        5 < x < 20
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A5. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            Pythonの便利な機能で、比較演算子をつなげて書くことができます。<br />
+                            これは前の問題の
+                            <code>5 < x and x < 20</code>
+                            と全く同じ意味になり、よりシンプルに記述できます。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q6 (旧Q5) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 2</span> Q6. 論理和 (or)</h3>
+                        <pre><code data-trim class="python">
+                        (3 > 5) or (10 == 10)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A6. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>or</code>（または）は、左右の条件の<b
+                                >どちらか一方でも True</b
+                            >
+                            であれば全体が <code>True</code> になります。<br />
+                            左側は <code>False</code> ですが、右側の
+                            <code>10 == 10</code> が
+                            <code>True</code> なので全体は
+                            <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q7 (旧Q6) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 3</span> Q7. 複合問題 1</h3>
+                        <pre><code data-trim class="python">
+                        (5 > 3) and (10 < 5)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A7. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. <code>(5 > 3)</code> は <code>True</code><br />
+                            2. <code>(10 < 5)</code> は <code>False</code><br />
+                            3. つまり
+                            <code>True and False</code> となるため、最終結果は
+                            <code>False</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q8 (旧Q7) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 3</span> Q8. 複合問題 2</h3>
+                        <pre><code data-trim class="python">
+                        not (10 >= 10)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A8. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. <code>(10 >= 10)</code> は「10は10以上」なので
+                            <code>True</code> です。<br />
+                            2. <code>not</code> は結果を反転させる「否定
+                            (NOT)」です。<br />
+                            3. <code>not (True)</code> となるため、最終結果は
+                            <code>False</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q9 (旧Q8) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 4</span> Q9. 優先順位のワナ
+                        </h3>
+                        <pre><code data-trim class="python">
+                        (1 > 2) or (3 == 3) and (5 < 0)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A9. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            プログラミングにおいて、<b
+                                >and は or よりも優先して計算される</b
+                            >というルールがあります。<br /><br />
+                            1. 先に右側の
+                            <code>(3 == 3) and (5 < 0)</code> （つまり
+                            <code>True and False</code>）が計算され、<code
+                                >False</code
+                            >
+                            になります。<br />
+                            2. その後、残った
+                            <code>(1 > 2) or False</code> （つまり
+                            <code>False or False</code
+                            >）が計算されるため、結果は
+                            <code>False</code> です。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q10 (旧Q9) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 4</span> Q10. ややこしい複合
+                        </h3>
+                        <pre><code data-trim class="python">
+                        (1 == 1) or not (3 == 3)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A10. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. 左側 <code>(1 == 1)</code> は
+                            <code>True</code>。<br />
+                            2. 右側 <code>(3 == 3)</code> は
+                            <code>True</code>。それに
+                            <code>not</code> が付いているので
+                            <code>False</code> になります。<br />
+                            3. つまり
+                            <code>True or False</code>
+                            となるため、どちらかがTrueなので全体は
+                            <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q11 (旧Q10) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 5</span> Q11. ボス問題</h3>
+                        <pre><code data-trim class="python">
+                        a = (1 == 1)
+                        b = (1 == 2)
+                        not (a or b) == (not a and not b)
+                    </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A11. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b>（ド・モルガンの法則）</p>
+                            【左辺】
+                            <code>a</code
+                            >は<code>True</code>、<code>b</code>は<code>False</code>なので
+                            <code>(a or b)</code> は
+                            <code>True</code
+                            >。それを否定(<code>not</code>)するので
+                            <code>False</code>。<br />
+                            【右辺】 <code>not a</code> は
+                            <code>False</code>。<code>not b</code> は
+                            <code>True</code>。つまり
+                            <code>False and True</code> なので
+                            <code>False</code>。<br />
+                            左辺(False)と右辺(False)が等しい(<code>==</code>)ので、結果は
+                            <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- エンディング -->
+                <section>
+                    <h2>全問終了！</h2>
+                    <p>お疲れ様でした 🎉</p>
+                    <div
+                        class="explanation"
+                        style="
+                            text-align: center;
+                            border-left: none;
+                            margin-top: 50px;
+                        "
+                    >
+                        実際のプログラミングでは、カッコ
+                        <code>()</code>
+                        を使って優先順位を明確に書き、自分でも他人が読んでもわかりやすい条件分岐を書くことがバグを防ぐコツです。
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Reveal.js コアとプラグインの読み込み (安定した CDN) -->
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+
+        <script>
+            // Reveal.jsの初期化
+            Reveal.initialize({
+                controls: true,
+                controlsTutorial: true,
+                progress: true,
+                slideNumber: false,
+                hash: true,
+                transition: "slide",
+                backgroundTransition: "fade",
+                plugins: [RevealHighlight],
+            });
+        </script>
+    </body>
+</html>
