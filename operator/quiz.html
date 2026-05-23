@@ -31,7 +31,6 @@
         />
 
         <style>
-            /* カスタムスタイル */
             .reveal pre {
                 width: 80%;
                 margin: 20px auto;
@@ -64,7 +63,19 @@
                 background: rgba(255, 255, 255, 0.05);
                 padding: 20px;
                 border-radius: 8px;
-                border-left: 4px solid #ffd43b; /* Pythonカラー寄りの黄色 */
+                border-left: 4px solid #ffd43b;
+            }
+            .hint {
+                font-size: 0.6em !important;
+                color: #aaa;
+                text-align: left;
+                width: 80%;
+                margin: 10px auto 0 auto;
+                line-height: 1.6;
+                background: rgba(77, 208, 225, 0.05);
+                padding: 15px 20px;
+                border-radius: 8px;
+                border-left: 4px solid #4dd0e1;
             }
             .instruction {
                 font-size: 0.5em !important;
@@ -90,7 +101,7 @@
             .badge {
                 display: inline-block;
                 font-size: 0.4em;
-                background: #306998; /* Pythonブルー */
+                background: #306998;
                 padding: 5px 10px;
                 border-radius: 20px;
                 vertical-align: middle;
@@ -132,10 +143,10 @@
                 <!-- Q1 -->
                 <section>
                     <section>
-                        <h3><span class="badge">Lv 1</span> Q1. 比較演算子</h3>
+                        <h3><span class="badge">Lv 1</span> Q1. 比較演算子（>）</h3>
                         <pre><code data-trim class="python">
-                        10 > 5
-                    </code></pre>
+10 > 5
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
@@ -153,11 +164,11 @@
                 <section>
                     <section>
                         <h3>
-                            <span class="badge">Lv 1</span> Q2. 型の違う比較
+                            <span class="badge">Lv 1</span> Q2. 比較演算子（==）と型
                         </h3>
                         <pre><code data-trim class="python">
-                        10 == "10"
-                    </code></pre>
+10 == "10"
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
@@ -172,22 +183,107 @@
                     </section>
                 </section>
 
-                <!-- Q3 (旧Q5を移動・変数を使った形に変更) -->
+                <!-- Q3 (NEW) -->
                 <section>
                     <section>
                         <h3>
-                            <span class="badge">Lv 2</span> Q3. 論理積
-                            (and)の基本
+                            <span class="badge">Lv 1</span> Q3. 比較演算子（!=）
                         </h3>
                         <pre><code data-trim class="python">
-                        a = (10 == 10)
-                        b = (5 > 10)
-                        a and b
-                    </code></pre>
+5 != 10
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A3. <span class="false-ans">False</span></h3>
+                        <h3>A3. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>!=</code> は「等しくない」を意味する演算子です。<br />
+                            5 と 10 は異なる値なので、<code>5 != 10</code> は
+                            <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q4 (NEW) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 1</span> Q4. 比較演算子（>=）
+                        </h3>
+                        <pre><code data-trim class="python">
+10 >= 10
+                        </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A4. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>&gt;=</code> は「以上（より大きいか等しい）」を意味します。<br />
+                            10 は 10 と等しいので、<code>10 &gt;= 10</code> は
+                            <code>True</code> になります。<code>&gt;</code>（より大きい）とは違い、等しい場合も <code>True</code> になる点に注意しましょう。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q5 (NEW) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q5. 否定演算子 not の基本
+                        </h3>
+                        <pre><code data-trim class="python">
+not False
+                        </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A5. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>not</code> は「否定」を表す演算子で、<code>True</code> を <code>False</code> に、<code>False</code> を <code>True</code> に反転させます。<br />
+                            <code>not False</code> は <code>False</code> の逆なので <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q6 (NEW) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q6. 否定演算子 not と比較
+                        </h3>
+                        <pre><code data-trim class="python">
+not (3 > 5)
+                        </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A6. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. まず <code>(3 > 5)</code> を評価します。3 は 5 より小さいので <code>False</code>。<br />
+                            2. <code>not False</code> は反転されて <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q7 (旧Q3) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 2</span> Q7. 論理積 and の基本
+                        </h3>
+                        <pre><code data-trim class="python">
+a = (10 == 10)
+b = (5 > 10)
+a and b
+                        </code></pre>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A7. <span class="false-ans">False</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             <code>a</code> は <code>True</code>、<code>b</code>
@@ -203,67 +299,66 @@
                     </section>
                 </section>
 
-                <!-- Q4 (旧Q3) -->
+                <!-- Q8 (旧Q4) -->
                 <section>
                     <section>
                         <h3>
-                            <span class="badge">Lv 2</span> Q4. andを使った条件
+                            <span class="badge">Lv 2</span> Q8. 論理積 and の応用
                         </h3>
                         <pre><code data-trim class="python">
-                        x = 10
-                        x > 5 and x < 20
-                    </code></pre>
+x = 10
+x > 5 and x < 20
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A4. <span class="true-ans">True</span></h3>
+                        <h3>A8. <span class="true-ans">True</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             <code>and</code> は左右の条件が両方とも True の時に
                             True になります。<br />
-                            <code>x > 5</code> は True、<code>x < 20</code> も
+                            <code>x > 5</code> は True、<code>x &lt; 20</code> も
                             True なので、全体として
                             <code>True</code> になります。
                         </div>
                     </section>
                 </section>
 
-                <!-- Q5 (旧Q4) -->
+                <!-- Q9 (旧Q5) -->
                 <section>
                     <section>
                         <h3>
-                            <span class="badge">Lv 2</span> Q5. 比較の連続
-                            (Python特有)
+                            <span class="badge">Lv 2</span> Q9. 比較の連鎖（Python特有）
                         </h3>
                         <pre><code data-trim class="python">
-                        x = 10
-                        5 < x < 20
-                    </code></pre>
+x = 10
+5 < x < 20
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A5. <span class="true-ans">True</span></h3>
+                        <h3>A9. <span class="true-ans">True</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             Pythonの便利な機能で、比較演算子をつなげて書くことができます。<br />
                             これは前の問題の
-                            <code>5 < x and x < 20</code>
+                            <code>5 &lt; x and x &lt; 20</code>
                             と全く同じ意味になり、よりシンプルに記述できます。
                         </div>
                     </section>
                 </section>
 
-                <!-- Q6 (旧Q5) -->
+                <!-- Q10 (旧Q6) -->
                 <section>
                     <section>
-                        <h3><span class="badge">Lv 2</span> Q6. 論理和 (or)</h3>
+                        <h3><span class="badge">Lv 2</span> Q10. 論理和 (or)</h3>
                         <pre><code data-trim class="python">
-                        (3 > 5) or (10 == 10)
-                    </code></pre>
+(3 > 5) or (10 == 10)
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A6. <span class="true-ans">True</span></h3>
+                        <h3>A10. <span class="true-ans">True</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             <code>or</code>（または）は、左右の条件の<b
@@ -278,21 +373,21 @@
                     </section>
                 </section>
 
-                <!-- Q7 (旧Q6) -->
+                <!-- Q11 (旧Q7) -->
                 <section>
                     <section>
-                        <h3><span class="badge">Lv 3</span> Q7. 複合問題 1</h3>
+                        <h3><span class="badge">Lv 2</span> Q11. 論理積 (and)</h3>
                         <pre><code data-trim class="python">
-                        (5 > 3) and (10 < 5)
-                    </code></pre>
+(5 > 3) and (10 < 5)
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A7. <span class="false-ans">False</span></h3>
+                        <h3>A11. <span class="false-ans">False</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             1. <code>(5 > 3)</code> は <code>True</code><br />
-                            2. <code>(10 < 5)</code> は <code>False</code><br />
+                            2. <code>(10 &lt; 5)</code> は <code>False</code><br />
                             3. つまり
                             <code>True and False</code> となるため、最終結果は
                             <code>False</code> になります。
@@ -300,20 +395,20 @@
                     </section>
                 </section>
 
-                <!-- Q8 (旧Q7) -->
+                <!-- Q12 (旧Q8) -->
                 <section>
                     <section>
-                        <h3><span class="badge">Lv 3</span> Q8. 複合問題 2</h3>
+                        <h3><span class="badge">Lv 3</span> Q12. not と複合条件</h3>
                         <pre><code data-trim class="python">
-                        not (10 >= 10)
-                    </code></pre>
+not (10 >= 10)
+                        </code></pre>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A8. <span class="false-ans">False</span></h3>
+                        <h3>A12. <span class="false-ans">False</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
-                            1. <code>(10 >= 10)</code> は「10は10以上」なので
+                            1. <code>(10 &gt;= 10)</code> は「10は10以上」なので
                             <code>True</code> です。<br />
                             2. <code>not</code> は結果を反転させる「否定
                             (NOT)」です。<br />
@@ -323,26 +418,79 @@
                     </section>
                 </section>
 
-                <!-- Q9 (旧Q8) -->
+                <!-- Q13 (NEW) -->
                 <section>
                     <section>
-                        <h3>
-                            <span class="badge">Lv 4</span> Q9. 優先順位のワナ
-                        </h3>
+                        <h3><span class="badge">Lv 3</span> Q13. and の連続（3条件）</h3>
                         <pre><code data-trim class="python">
-                        (1 > 2) or (3 == 3) and (5 < 0)
-                    </code></pre>
+(1 < 2) and (2 < 3) and (3 < 1)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> <code>and</code> は<b>すべての条件が True</b> のときだけ True になります。3つの条件をひとつずつ確認してみましょう。
+                        </div>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A9. <span class="false-ans">False</span></h3>
+                        <h3>A13. <span class="false-ans">False</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. <code>(1 &lt; 2)</code> は <code>True</code><br />
+                            2. <code>(2 &lt; 3)</code> は <code>True</code><br />
+                            3. <code>(3 &lt; 1)</code> は <code>False</code><br />
+                            4. <code>and</code> は1つでも <code>False</code> があれば全体が <code>False</code> になります。3番目の条件が <code>False</code> なので結果は <code>False</code> です。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q14 (NEW) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 3</span> Q14. 変数と複合条件</h3>
+                        <pre><code data-trim class="python">
+x = 8
+x > 5 and x < 10 and x != 9
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> まず <code>x = 8</code> を代入して、各条件を左から順に確認してみましょう。
+                        </div>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A14. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            <code>x = 8</code> を代入して各条件を確認します。<br />
+                            1. <code>8 > 5</code> は <code>True</code><br />
+                            2. <code>8 &lt; 10</code> は <code>True</code><br />
+                            3. <code>8 != 9</code> は <code>True</code>（8と9は等しくない）<br />
+                            3つすべてが <code>True</code> なので全体も <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q15 (旧Q9) -->
+                <section>
+                    <section>
+                        <h3>
+                            <span class="badge">Lv 4</span> Q15. 優先順位のワナ（and と or）
+                        </h3>
+                        <pre><code data-trim class="python">
+(1 > 2) or (3 == 3) and (5 < 0)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> <code>and</code> と <code>or</code> が混在しています。計算の優先順位は <code>and</code> の方が <code>or</code> より高くなります（掛け算と足し算の関係に似ています）。
+                        </div>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A15. <span class="false-ans">False</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             プログラミングにおいて、<b
                                 >and は or よりも優先して計算される</b
                             >というルールがあります。<br /><br />
                             1. 先に右側の
-                            <code>(3 == 3) and (5 < 0)</code> （つまり
+                            <code>(3 == 3) and (5 &lt; 0)</code> （つまり
                             <code>True and False</code>）が計算され、<code
                                 >False</code
                             >
@@ -356,19 +504,22 @@
                     </section>
                 </section>
 
-                <!-- Q10 (旧Q9) -->
+                <!-- Q16 (旧Q10) -->
                 <section>
                     <section>
                         <h3>
-                            <span class="badge">Lv 4</span> Q10. ややこしい複合
+                            <span class="badge">Lv 4</span> Q16. 優先順位のワナ（not と or）
                         </h3>
                         <pre><code data-trim class="python">
-                        (1 == 1) or not (3 == 3)
-                    </code></pre>
+(1 == 1) or not (3 == 3)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> <code>not</code> は直後の式だけに適用されます。<code>not (3 == 3)</code> の部分を先に計算してみましょう。
+                        </div>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A10. <span class="true-ans">True</span></h3>
+                        <h3>A16. <span class="true-ans">True</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b></p>
                             1. 左側 <code>(1 == 1)</code> は
@@ -385,19 +536,48 @@
                     </section>
                 </section>
 
-                <!-- Q11 (旧Q10) -->
+                <!-- Q17 (NEW) -->
                 <section>
                     <section>
-                        <h3><span class="badge">Lv 5</span> Q11. ボス問題</h3>
+                        <h3>
+                            <span class="badge">Lv 4</span> Q17. 優先順位のワナ（not と and）
+                        </h3>
                         <pre><code data-trim class="python">
-                        a = (1 == 1)
-                        b = (1 == 2)
-                        not (a or b) == (not a and not b)
-                    </code></pre>
+not (3 > 5) and (10 == 10)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> 優先順位は高い順に <code>not</code> → <code>and</code> → <code>or</code> です。まず <code>not (3 > 5)</code> を評価してから <code>and</code> で結合します。
+                        </div>
                         <p class="instruction">⬇️ 下へ進んで答えを確認</p>
                     </section>
                     <section>
-                        <h3>A11. <span class="true-ans">True</span></h3>
+                        <h3>A17. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b></p>
+                            1. <code>not</code> は最も優先順位が高いため、まず <code>not (3 > 5)</code> を計算します。<br />
+                            &nbsp;&nbsp;→ <code>(3 > 5)</code> は <code>False</code>、<code>not False</code> は <code>True</code>。<br />
+                            2. 次に <code>True and (10 == 10)</code> を計算します。<br />
+                            &nbsp;&nbsp;→ <code>(10 == 10)</code> は <code>True</code>、<code>True and True</code> は <code>True</code>。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q18 (旧Q11) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 5</span> Q18. ボス問題 1</h3>
+                        <pre><code data-trim class="python">
+a = (1 == 1)
+b = (1 == 2)
+not (a or b) == (not a and not b)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> まず <code>a</code> と <code>b</code> の値を確認してから、左辺 <code>not (a or b)</code> と右辺 <code>(not a and not b)</code> をそれぞれ別々に計算してみましょう。これはド・モルガンの法則に関係しています。
+                        </div>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A18. <span class="true-ans">True</span></h3>
                         <div class="explanation">
                             <p><b>解説：</b>（ド・モルガンの法則）</p>
                             【左辺】
@@ -414,6 +594,33 @@
                             <code>False</code>。<br />
                             左辺(False)と右辺(False)が等しい(<code>==</code>)ので、結果は
                             <code>True</code> になります。
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Q19 (NEW) -->
+                <section>
+                    <section>
+                        <h3><span class="badge">Lv 5</span> Q19. ボス問題 2</h3>
+                        <pre><code data-trim class="python">
+a = True
+b = False
+(a or b) and not (a and b)
+                        </code></pre>
+                        <div class="hint">
+                            💡 <b>ヒント：</b> カッコの中を先に評価します。<code>not</code> は直後の <code>(a and b)</code> 全体に適用されます。これは「どちらか一方だけが True」のとき True になるパターンです（排他的論理和）。
+                        </div>
+                        <p class="instruction">⬇️ 下へ進んで答えを確認</p>
+                    </section>
+                    <section>
+                        <h3>A19. <span class="true-ans">True</span></h3>
+                        <div class="explanation">
+                            <p><b>解説：</b>（排他的論理和 XOR 的パターン）</p>
+                            <code>a = True</code>、<code>b = False</code> を代入します。<br /><br />
+                            1. 左側 <code>(a or b)</code> = <code>(True or False)</code> = <code>True</code><br />
+                            2. 右側 <code>not (a and b)</code> = <code>not (True and False)</code> = <code>not False</code> = <code>True</code><br />
+                            3. <code>True and True</code> なので全体は <code>True</code>。<br /><br />
+                            このパターンは「<code>a</code> と <code>b</code> のどちらか<b>一方だけ</b>が True のとき True」になります（XOR）。両方 True や両方 False だと False になります。
                         </div>
                     </section>
                 </section>
@@ -438,12 +645,11 @@
             </div>
         </div>
 
-        <!-- Reveal.js コアとプラグインの読み込み (安定した CDN) -->
+        <!-- Reveal.js コアとプラグインの読み込み -->
         <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
 
         <script>
-            // Reveal.jsの初期化
             Reveal.initialize({
                 controls: true,
                 controlsTutorial: true,
