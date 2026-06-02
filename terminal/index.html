@@ -1,99 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ページを移動しています...</title>
-    
-    <!-- ▼▼▼ ここがリダイレクトの設定です ▼▼▼ -->
-    <!-- content="秒数;url=遷移先のURL" の形式で指定します -->
-    <!-- 現在は「3秒後」に「https://example.com/」へ移動する設定です -->
-    <meta http-equiv="refresh" content="3;url=https://example.com/">
-    
-    <!-- SEO対策: 検索エンジンに正しいURLを伝えるためのカノニカルタグ（推奨） -->
-    <link rel="canonical" href="https://example.com/">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ページを移動しています...</title>
 
-    <!-- ページのデザイン（CSS） -->
-    <style>
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            background-color: #f3f4f6;
-            color: #374151;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-        }
-        h1 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 16px;
-            color: #111827;
-        }
-        p {
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 24px;
-            color: #4b5563;
-        }
-        .link-button {
-            display: inline-block;
-            background-color: #2563eb;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.2s ease;
-        }
-        .link-button:hover {
-            background-color: #1d4ed8;
-        }
-        /* くるくる回るローディングアニメーション */
-        .spinner {
-            border: 4px solid #e5e7eb;
-            border-top: 4px solid #2563eb;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
+        <!-- ▼▼▼ ここがリダイレクトの設定です ▼▼▼ -->
+        <!-- content="秒数;url=遷移先のURL" の形式で指定します -->
+        <!-- 現在は「3秒後」に「https://example.com/」へ移動する設定です -->
+        <meta
+            http-equiv="refresh"
+            content="3;url=https://works.crssrds.jp/refs/terminal/"
+        />
 
-    <div class="container">
-        <!-- ローディングアニメーション -->
-        <div class="spinner"></div>
-        
-        <h1>ページを移動しています</h1>
-        <p>数秒後に新しいページへ自動的に移動します。<br>しばらくそのままお待ちください。</p>
-        
-        <!-- 自動で遷移しなかった場合のフォールバック（手動リンク） -->
-        <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 16px;">
-            もし自動的に移動しない場合は、以下のボタンをクリックしてください。
-        </p>
-        
-        <!-- ▼遷移先のURLをここにも設定してください -->
-        <a href="https://example.com/" class="link-button">新しいページへ移動する</a>
-    </div>
+        <!-- SEO対策: 検索エンジンに正しいURLを伝えるためのカノニカルタグ（推奨） -->
+        <link rel="canonical" href="https://works.crssrds.jp/refs/terminal/" />
 
-</body>
+        <!-- ページのデザイン（CSS） -->
+        <style>
+            body {
+                font-family:
+                    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+                    "Hiragino Sans", Meiryo, sans-serif;
+                background-color: #f3f4f6;
+                color: #374151;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow:
+                    0 4px 6px rgba(0, 0, 0, 0.05),
+                    0 1px 3px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 0;
+                margin-bottom: 16px;
+                color: #111827;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 24px;
+                color: #4b5563;
+            }
+            .link-button {
+                display: inline-block;
+                background-color: #2563eb;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                transition: background-color 0.2s ease;
+            }
+            .link-button:hover {
+                background-color: #1d4ed8;
+            }
+            /* くるくる回るローディングアニメーション */
+            .spinner {
+                border: 4px solid #e5e7eb;
+                border-top: 4px solid #2563eb;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 20px auto;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- ローディングアニメーション -->
+            <div class="spinner"></div>
+
+            <h1>ページを移動しています</h1>
+            <p>
+                数秒後に新しいページへ自動的に移動します。<br />しばらくそのままお待ちください。
+            </p>
+
+            <!-- 自動で遷移しなかった場合のフォールバック（手動リンク） -->
+            <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 16px">
+                もし自動的に移動しない場合は、以下のボタンをクリックしてください。
+            </p>
+
+            <!-- ▼遷移先のURLをここにも設定してください -->
+            <a
+                href="https://works.crssrds.jp/refs/terminal/"
+                class="link-button"
+                >新しいページへ移動する</a
+            >
+        </div>
+    </body>
 </html>
