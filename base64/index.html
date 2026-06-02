@@ -3,367 +3,110 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Base64 エンコーダ / デコーダ</title>
-        <!-- 文字コード変換とBase64変換のためのライブラリ (ローカルで処理を完結させるために使用) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.min.js"></script>
-        <!-- スタイルリング用の Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
+        <title>ページを移動しています...</title>
+
+        <!-- ▼▼▼ ここがリダイレクトの設定です ▼▼▼ -->
+        <!-- content="秒数;url=遷移先のURL" の形式で指定します -->
+        <!-- 現在は「3秒後」に「https://example.com/」へ移動する設定です -->
+        <meta
+            http-equiv="refresh"
+            content="3;url=https://works.crssrds.jp/base64"
+        />
+
+        <!-- SEO対策: 検索エンジンに正しいURLを伝えるためのカノニカルタグ（推奨） -->
+        <link rel="canonical" href="https://example.com/" />
+
+        <!-- ページのデザイン（CSS） -->
+        <style>
+            body {
+                font-family:
+                    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+                    "Hiragino Sans", Meiryo, sans-serif;
+                background-color: #f3f4f6;
+                color: #374151;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow:
+                    0 4px 6px rgba(0, 0, 0, 0.05),
+                    0 1px 3px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 0;
+                margin-bottom: 16px;
+                color: #111827;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 24px;
+                color: #4b5563;
+            }
+            .link-button {
+                display: inline-block;
+                background-color: #2563eb;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                transition: background-color 0.2s ease;
+            }
+            .link-button:hover {
+                background-color: #1d4ed8;
+            }
+            /* くるくる回るローディングアニメーション */
+            .spinner {
+                border: 4px solid #e5e7eb;
+                border-top: 4px solid #2563eb;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 20px auto;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
     </head>
-    <body class="bg-gray-100 min-h-screen p-4 font-sans text-gray-800">
-        <div class="max-w-2xl mx-auto bg-white p-5 rounded-xl shadow-lg">
-            <h1
-                class="text-xl md:text-2xl font-bold text-center mb-1 text-indigo-700"
-            >
-                Base64 エンコーダ / デコーダ
-            </h1>
-            <p class="text-center text-xs text-gray-500 mb-4">
-                データはサーバーに送信されず、すべてブラウザ上で処理されます。
+    <body>
+        <div class="container">
+            <!-- ローディングアニメーション -->
+            <div class="spinner"></div>
+
+            <h1>ページを移動しています</h1>
+            <p>
+                数秒後に新しいページへ自動的に移動します。<br />しばらくそのままお待ちください。
             </p>
 
-            <!-- 通常テキストエリア (上) -->
-            <div class="mb-4 relative">
-                <label
-                    for="textInput"
-                    class="block text-sm font-bold text-gray-700 mb-1"
-                    >テキスト (文字列):</label
-                >
-                <textarea
-                    id="textInput"
-                    class="w-full border border-gray-300 rounded-lg p-2.5 h-28 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm"
-                    placeholder="ここに通常のテキストを入力してください..."
-                ></textarea>
-                <button
-                    id="btnCopyText"
-                    class="absolute bottom-3 right-3 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-semibold py-1.5 px-3 rounded shadow transition"
-                >
-                    コピー
-                </button>
-            </div>
+            <!-- 自動で遷移しなかった場合のフォールバック（手動リンク） -->
+            <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 16px">
+                もし自動的に移動しない場合は、以下のボタンをクリックしてください。
+            </p>
 
-            <!-- コントロールパネル -->
-            <div
-                class="mb-4 bg-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-inner"
+            <!-- ▼遷移先のURLをここにも設定してください -->
+            <a href="https://example.com/" class="link-button"
+                >新しいページへ移動する</a
             >
-                <!-- 文字コード選択 -->
-                <div class="mb-3 flex flex-col sm:flex-row sm:items-center">
-                    <span
-                        class="font-bold text-sm text-indigo-900 mr-4 mb-1 sm:mb-0"
-                        >文字コード:</span
-                    >
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <label class="inline-flex items-center cursor-pointer">
-                            <input
-                                type="radio"
-                                name="charset"
-                                value="UTF8"
-                                checked
-                                class="form-radio text-indigo-600 focus:ring-indigo-500 h-4 w-4"
-                            />
-                            <span class="ml-1">UTF-8</span>
-                        </label>
-                        <label class="inline-flex items-center cursor-pointer">
-                            <input
-                                type="radio"
-                                name="charset"
-                                value="SJIS"
-                                class="form-radio text-indigo-600 focus:ring-indigo-500 h-4 w-4"
-                            />
-                            <span class="ml-1">Shift_JIS</span>
-                        </label>
-                        <label class="inline-flex items-center cursor-pointer">
-                            <input
-                                type="radio"
-                                name="charset"
-                                value="EUCJP"
-                                class="form-radio text-indigo-600 focus:ring-indigo-500 h-4 w-4"
-                            />
-                            <span class="ml-1">EUC-JP</span>
-                        </label>
-                        <label class="inline-flex items-center cursor-pointer">
-                            <input
-                                type="radio"
-                                name="charset"
-                                value="JIS"
-                                class="form-radio text-indigo-600 focus:ring-indigo-500 h-4 w-4"
-                            />
-                            <span class="ml-1">JIS</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- オプション追加 -->
-                <div class="mb-4 flex flex-col sm:flex-row sm:items-center">
-                    <span
-                        class="font-bold text-sm text-indigo-900 mr-4 mb-1 sm:mb-0"
-                        >オプション:</span
-                    >
-                    <label class="inline-flex items-center cursor-pointer">
-                        <input
-                            type="checkbox"
-                            id="useMimeHeader"
-                            class="form-checkbox text-indigo-600 focus:ring-indigo-500 h-4 w-4 rounded"
-                        />
-                        <span class="ml-1 text-sm text-gray-700"
-                            >MIMEヘッダ形式にする
-                            <span class="text-xs text-gray-500"
-                                >(エンコード時のみ)</span
-                            ></span
-                        >
-                    </label>
-                </div>
-
-                <!-- ボタン群 -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <button
-                        id="btnEncode"
-                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-sm"
-                    >
-                        <div class="flex items-center justify-center">
-                            <svg
-                                class="w-4 h-4 mr-1.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                                ></path>
-                            </svg>
-                            エンコード (下へ)
-                        </div>
-                    </button>
-                    <button
-                        id="btnDecode"
-                        class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 text-sm"
-                    >
-                        <div class="flex items-center justify-center">
-                            <svg
-                                class="w-4 h-4 mr-1.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                                ></path>
-                            </svg>
-                            デコード (上へ)
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- エラーメッセージ -->
-            <div
-                id="errorMessage"
-                class="hidden mb-3 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 text-sm rounded shadow-sm"
-            ></div>
-
-            <!-- Base64エリア (下) -->
-            <div class="mb-1 relative">
-                <label
-                    for="base64Input"
-                    class="block text-sm font-bold text-gray-700 mb-1"
-                    >Base64データ:</label
-                >
-                <textarea
-                    id="base64Input"
-                    class="w-full border border-gray-300 rounded-lg p-2.5 h-28 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm"
-                    placeholder="ここにBase64文字列を入力してください..."
-                ></textarea>
-
-                <!-- コピーボタン -->
-                <button
-                    id="btnCopyBase64"
-                    class="absolute bottom-3 right-3 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-semibold py-1.5 px-3 rounded shadow transition"
-                >
-                    コピー
-                </button>
-            </div>
         </div>
-
-        <script>
-            // DOM要素の取得
-            const textInput = document.getElementById("textInput");
-            const base64Input = document.getElementById("base64Input");
-            const btnEncode = document.getElementById("btnEncode");
-            const btnDecode = document.getElementById("btnDecode");
-            const errorMessage = document.getElementById("errorMessage");
-            const useMimeHeader = document.getElementById("useMimeHeader");
-
-            // 選択された文字コードを取得する関数
-            function getSelectedCharset() {
-                const radios = document.getElementsByName("charset");
-                for (let i = 0; i < radios.length; i++) {
-                    if (radios[i].checked) {
-                        return radios[i].value;
-                    }
-                }
-                return "UTF8";
-            }
-
-            // エラーメッセージを表示する関数
-            function showError(msg) {
-                errorMessage.textContent = msg;
-                errorMessage.classList.remove("hidden");
-                setTimeout(() => {
-                    errorMessage.classList.add("hidden");
-                }, 5000); // 5秒後に消す
-            }
-
-            // 成功時にエラーを隠す関数
-            function hideError() {
-                errorMessage.classList.add("hidden");
-            }
-
-            // 【エンコード機能】 (上から下へ)
-            btnEncode.addEventListener("click", () => {
-                hideError();
-                try {
-                    const text = textInput.value;
-                    if (!text) {
-                        base64Input.value = "";
-                        return;
-                    }
-                    const charset = getSelectedCharset();
-
-                    // 1. 文字列を JavaScriptのUnicode配列に変換
-                    const unicodeArray = Encoding.stringToCode(text);
-                    // 2. 指定した文字コード(UTF-8, SJIS等)のバイト配列に変換
-                    const targetArray = Encoding.convert(unicodeArray, {
-                        to: charset,
-                        from: "UNICODE",
-                    });
-                    // 3. バイト配列を Base64 文字列に変換
-                    const base64Str = Encoding.base64Encode(targetArray);
-
-                    // メールの送信者名（MIMEヘッダ）形式のオプションがチェックされているか
-                    if (useMimeHeader.checked) {
-                        // IANA登録の文字コード名にマッピング
-                        let mimeCharset = "UTF-8";
-                        if (charset === "SJIS") mimeCharset = "Shift_JIS";
-                        if (charset === "EUCJP") mimeCharset = "EUC-JP";
-                        if (charset === "JIS") mimeCharset = "ISO-2022-JP";
-
-                        // =?charset?B?base64文字列?= の形式にする
-                        base64Input.value = `=?${mimeCharset}?B?${base64Str}?=`;
-                    } else {
-                        base64Input.value = base64Str;
-                    }
-                } catch (e) {
-                    showError("エンコード処理中にエラーが発生しました。");
-                    console.error(e);
-                }
-            });
-
-            // 【デコード機能】 (下から上へ)
-            btnDecode.addEventListener("click", () => {
-                hideError();
-                try {
-                    // 入力文字列の前後空白（改行など）を削除
-                    let base64Str = base64Input.value.trim();
-                    if (!base64Str) {
-                        textInput.value = "";
-                        return;
-                    }
-
-                    let charset = getSelectedCharset();
-
-                    // MIMEヘッダ形式 ( =?charset?B?base64?= ) のチェック
-                    const mimeRegex = /^=\?([^?]+)\?B\?([^?]+)\?=$/i;
-                    const match = base64Str.match(mimeRegex);
-
-                    if (match) {
-                        // ヘッダから文字コードとBase64文字列を抽出
-                        const headerCharset = match[1].toUpperCase();
-                        base64Str = match[2];
-
-                        // 文字コードを判別して画面の選択に反映
-                        if (headerCharset.includes("UTF-8")) {
-                            charset = "UTF8";
-                        } else if (headerCharset.includes("SHIFT_JIS")) {
-                            charset = "SJIS";
-                        } else if (headerCharset.includes("EUC-JP")) {
-                            charset = "EUCJP";
-                        } else if (headerCharset.includes("ISO-2022-JP")) {
-                            charset = "JIS";
-                        }
-
-                        // ラジオボタンの選択状態を更新
-                        const radios = document.getElementsByName("charset");
-                        for (let i = 0; i < radios.length; i++) {
-                            if (radios[i].value === charset) {
-                                radios[i].checked = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    // Base64に使用されない文字が含まれていないか簡易チェック
-                    if (!/^[A-Za-z0-9+/=]+$/.test(base64Str)) {
-                        throw new Error("Invalid Base64 format");
-                    }
-
-                    // 1. Base64文字列を バイト配列に変換
-                    const targetArray = Encoding.base64Decode(base64Str);
-                    // 2. 指定した文字コードから JavaScriptのUnicode配列に変換
-                    const unicodeArray = Encoding.convert(targetArray, {
-                        to: "UNICODE",
-                        from: charset,
-                    });
-                    // 3. Unicode配列を 文字列に変換
-                    const text = Encoding.codeToString(unicodeArray);
-
-                    textInput.value = text;
-                } catch (e) {
-                    showError(
-                        "デコードに失敗しました。正しいBase64文字列か確認してください。",
-                    );
-                    console.error(e);
-                }
-            });
-
-            // 【コピー機能】汎用関数
-            function setupCopyButton(btnId, textAreaId) {
-                const btn = document.getElementById(btnId);
-                const textArea = document.getElementById(textAreaId);
-                btn.addEventListener("click", () => {
-                    if (!textArea.value) return;
-
-                    if (navigator.clipboard) {
-                        navigator.clipboard
-                            .writeText(textArea.value)
-                            .then(() => {
-                                const originalText = btn.textContent;
-                                btn.textContent = "コピー完了";
-                                setTimeout(
-                                    () => (btn.textContent = originalText),
-                                    2000,
-                                );
-                            });
-                    } else {
-                        textArea.select();
-                        document.execCommand("copy");
-                        const originalText = btn.textContent;
-                        btn.textContent = "コピー完了";
-                        setTimeout(
-                            () => (btn.textContent = originalText),
-                            2000,
-                        );
-                    }
-                });
-            }
-
-            setupCopyButton("btnCopyText", "textInput");
-            setupCopyButton("btnCopyBase64", "base64Input");
-        </script>
     </body>
 </html>

@@ -1,57 +1,114 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>プログラミング記号リファレンス ─ 読み方・用途・キー入力まとめ</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../shared/toast.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <header class="mb-12 text-center">
-        <h1
-          class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight"
-        >
-          プログラミング記号リファレンス<br />
-          読み方・用途・キー入力まとめ
-        </h1>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          プログラミングで頻繁に使用される（けれど一般に馴染みの薄い）記号の読み方、用途、そしてキーボード（日本語JIS
-          / 英語US）での入力方法をまとめました。<br class="hidden md:block" />
-          <span
-            class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded mt-2 inline-block"
-            >💡 記号をクリックするとコピーできます</span
-          >
-        </p>
-      </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ページを移動しています...</title>
 
-      <div
-        id="symbols-container"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        <!-- JavaScriptで動的に生成されます -->
-      </div>
+        <!-- ▼▼▼ ここがリダイレクトの設定です ▼▼▼ -->
+        <!-- content="秒数;url=遷移先のURL" の形式で指定します -->
+        <!-- 現在は「3秒後」に「https://example.com/」へ移動する設定です -->
+        <meta
+            http-equiv="refresh"
+            content="3;https://works.crssrds.jp/refs/characters/"
+        />
 
-      <footer
-        class="mt-16 text-center text-sm text-gray-500 border-t pt-8 pb-4"
-      >
-        <p>
-          ※キーボードの種類やOS（Windows /
-          Mac）によって一部入力方法が異なる場合があります。
-        </p>
-      </footer>
-    </div>
+        <!-- SEO対策: 検索エンジンに正しいURLを伝えるためのカノニカルタグ（推奨） -->
+        <link rel="canonical" href="https://example.com/" />
 
-    <div
-      id="toast"
-      class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded shadow-lg z-50 text-sm font-medium"
-    >
-      コピーしました！
-    </div>
+        <!-- ページのデザイン（CSS） -->
+        <style>
+            body {
+                font-family:
+                    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+                    "Hiragino Sans", Meiryo, sans-serif;
+                background-color: #f3f4f6;
+                color: #374151;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow:
+                    0 4px 6px rgba(0, 0, 0, 0.05),
+                    0 1px 3px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 0;
+                margin-bottom: 16px;
+                color: #111827;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 24px;
+                color: #4b5563;
+            }
+            .link-button {
+                display: inline-block;
+                background-color: #2563eb;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                transition: background-color 0.2s ease;
+            }
+            .link-button:hover {
+                background-color: #1d4ed8;
+            }
+            /* くるくる回るローディングアニメーション */
+            .spinner {
+                border: 4px solid #e5e7eb;
+                border-top: 4px solid #2563eb;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 20px auto;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- ローディングアニメーション -->
+            <div class="spinner"></div>
 
-    <script src="../shared/toast.js"></script>
-    <script type="module" src="main.js"></script>
-  </body>
+            <h1>ページを移動しています</h1>
+            <p>
+                数秒後に新しいページへ自動的に移動します。<br />しばらくそのままお待ちください。
+            </p>
+
+            <!-- 自動で遷移しなかった場合のフォールバック（手動リンク） -->
+            <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 16px">
+                もし自動的に移動しない場合は、以下のボタンをクリックしてください。
+            </p>
+
+            <!-- ▼遷移先のURLをここにも設定してください -->
+            <a
+                href="https://works.crssrds.jp/refs/characters/"
+                class="link-button"
+                >新しいページへ移動する</a
+            >
+        </div>
+    </body>
 </html>
